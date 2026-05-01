@@ -1,0 +1,330 @@
+.page {
+  min-height: 100vh;
+  background: var(--surface-light);
+  color: var(--text-dark);
+  overflow-x: hidden;
+}
+
+.hero {
+  padding: 3.25rem var(--section-x) 5rem;
+  background:
+    radial-gradient(circle at 15% 10%, rgba(237, 28, 35, 0.24), transparent 26%),
+    linear-gradient(135deg, #09090b 0%, #151114 58%, #0c0d10 100%);
+  color: #fff;
+}
+
+.heroGrid,
+.approachSection,
+.pathwaySection,
+.finalCta {
+  max-width: var(--content-max);
+  margin: 0 auto;
+}
+
+.heroGrid {
+  display: grid;
+  grid-template-columns: 0.92fr 1.08fr;
+  gap: 2rem;
+  align-items: center;
+}
+
+.heroCopy {
+  max-width: 46rem;
+}
+
+.eyebrow {
+  color: var(--brand);
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  line-height: 1.1;
+  margin: 0 0 1rem;
+  text-transform: uppercase;
+}
+
+.heroCopy h1,
+.approachIntro h2,
+.pathwayCopy h2,
+.finalCta h2 {
+  font-size: clamp(3.35rem, 6.4vw, 6.6rem);
+  line-height: 0.94;
+  text-transform: uppercase;
+}
+
+.heroCopy p:not(.eyebrow),
+.approachIntro p,
+.pathwayCopy p,
+.finalCta p {
+  color: rgba(255, 255, 255, 0.78);
+  line-height: 1.8;
+  font-size: 1.05rem;
+  margin: 1.25rem 0 0;
+  max-width: 44rem;
+}
+
+.ctaRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1.75rem;
+}
+
+.primaryButton,
+.secondaryButton,
+.secondaryButtonDark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 3.15rem;
+  border-radius: 999px;
+  padding: 0 1.35rem;
+  font-weight: 800;
+  position: relative;
+  overflow: hidden;
+  transition:
+    transform 180ms ease,
+    background-color 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.primaryButton {
+  background: var(--brand);
+  color: #fff;
+  box-shadow: 0 16px 32px rgba(237, 28, 35, 0.26);
+}
+
+.primaryButton:hover,
+.secondaryButton:hover,
+.secondaryButtonDark:hover {
+  transform: translateY(-2px);
+}
+
+.secondaryButton {
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: #fff;
+}
+
+.secondaryButtonDark {
+  border: 1px solid rgba(17, 17, 17, 0.1);
+  background: rgba(17, 17, 17, 0.06);
+  color: var(--text-dark);
+}
+
+.heroVisual,
+.pathwayImage {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-xl);
+  background: #111;
+  box-shadow: var(--shadow);
+}
+
+.heroVisual {
+  min-height: 43rem;
+}
+
+.pathwayImage {
+  min-height: 36rem;
+}
+
+.heroVisual::after,
+.pathwayImage::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(5, 5, 8, 0.08), rgba(5, 5, 8, 0.66)),
+    linear-gradient(120deg, rgba(237, 28, 35, 0.2), transparent 44%);
+}
+
+.photo {
+  object-fit: cover;
+}
+
+.heroBadge {
+  position: absolute;
+  right: 1.5rem;
+  bottom: 1.5rem;
+  z-index: 1;
+  width: min(22rem, calc(100% - 3rem));
+  border-radius: var(--panel-radius);
+  border: 1px solid var(--panel-border-dark);
+  background: rgba(11, 11, 13, 0.78);
+  backdrop-filter: blur(14px);
+  padding: var(--panel-padding);
+}
+
+.heroBadge span {
+  color: var(--brand);
+  font-size: 0.82rem;
+  font-weight: 800;
+}
+
+.heroBadge strong {
+  display: block;
+  line-height: 1.45;
+  margin-top: 0.35rem;
+}
+
+.approachSection {
+  padding: var(--section-y) var(--section-x) 0;
+}
+
+.approachIntro {
+  display: grid;
+  justify-items: center;
+  max-width: 72rem;
+  margin: 0 auto 2rem;
+  text-align: center;
+}
+
+.approachIntro h2 {
+  max-width: 18ch;
+}
+
+.approachIntro h2,
+.pathwayCopy h2,
+.finalCta h2 {
+  color: var(--text-dark);
+  font-size: clamp(2.35rem, 4.2vw, 4.35rem);
+}
+
+.approachIntro p,
+.pathwayCopy p,
+.finalCta p {
+  color: var(--text-dark-muted);
+}
+
+.pillarGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.pillarCard {
+  min-height: 0;
+  border-radius: var(--panel-radius);
+  border: 1px solid var(--panel-border-light);
+  background:
+    radial-gradient(circle at top right, rgba(237, 28, 35, 0.08), transparent 38%),
+    #fff;
+  padding: 1.25rem;
+  display: grid;
+  align-content: start;
+  gap: 0.85rem;
+  box-shadow: 0 20px 42px rgba(0, 0, 0, 0.07);
+}
+
+.icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.8rem;
+  height: 2.8rem;
+  border-radius: 999px;
+  background: rgba(237, 28, 35, 0.12);
+  color: var(--brand);
+}
+
+.icon svg {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.pillarCard h3 {
+  font-size: 1.25rem;
+}
+
+.pillarCard p {
+  color: var(--text-dark-muted);
+  line-height: 1.75;
+  margin: 0;
+}
+
+.pathwaySection {
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  gap: 2rem;
+  align-items: center;
+  padding: var(--section-y) var(--section-x) 0;
+}
+
+.pathwayCopy {
+  align-self: center;
+}
+
+.pathwayTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.6rem;
+}
+
+.pathwayTags span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.5rem;
+  border-radius: 999px;
+  padding: 0 1rem;
+  background: #fff;
+  border: 1px solid var(--panel-border-light);
+  color: var(--text-dark);
+  font-weight: 800;
+}
+
+.finalCta {
+  display: grid;
+  grid-template-columns: 1fr 0.72fr;
+  gap: 2rem;
+  align-items: center;
+  padding: var(--section-y) var(--section-x);
+}
+
+.ctaPanel {
+  display: grid;
+  gap: 1rem;
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--panel-border-light);
+  background:
+    radial-gradient(circle at bottom right, rgba(237, 28, 35, 0.12), transparent 42%),
+    #fff;
+  padding: 1.5rem;
+  box-shadow: 0 24px 54px rgba(0, 0, 0, 0.1);
+}
+
+.ctaPanel span {
+  color: var(--text-dark-muted);
+  line-height: 1.6;
+}
+
+@media (max-width: 1000px) {
+  .heroGrid,
+  .pillarGrid,
+  .pathwaySection,
+  .finalCta {
+    grid-template-columns: 1fr;
+  }
+
+  .heroVisual,
+  .pathwayImage {
+    min-height: 32rem;
+  }
+}
+
+@media (max-width: 680px) {
+  .hero {
+    padding-top: 2rem;
+  }
+
+  .heroVisual,
+  .pathwayImage {
+    min-height: 28rem;
+  }
+
+  .primaryButton,
+  .secondaryButton,
+  .secondaryButtonDark {
+    width: 100%;
+  }
+}
