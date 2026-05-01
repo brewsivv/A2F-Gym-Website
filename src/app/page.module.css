@@ -113,6 +113,10 @@
   backdrop-filter: blur(10px);
 }
 
+.mobileChoiceGrid {
+  display: none;
+}
+
 .heroChoiceCard {
   padding: 1.1rem 1.15rem;
   background: transparent;
@@ -145,6 +149,10 @@
   gap: 0.9rem;
 }
 
+.mobileHeroActions {
+  display: none;
+}
+
 .heroVisual {
   position: relative;
   min-height: 39rem;
@@ -173,6 +181,10 @@
 
 .photo {
   object-fit: cover;
+}
+
+.mainPhotoCard .photo {
+  object-position: center top;
 }
 
 .floatingStat,
@@ -971,8 +983,73 @@
 }
 
 @media (max-width: 720px) {
+  .hero {
+    padding-top: 2rem;
+    padding-bottom: 3.25rem;
+  }
+
+  .heroText {
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+
   .heroVisual {
-    min-height: 28rem;
+    min-height: 31rem;
+  }
+
+  .mainPhotoCard {
+    position: absolute;
+    inset: 0;
+    min-height: 0;
+    border-radius: 1.25rem;
+  }
+
+  .floatingStat,
+  .floatingPanel {
+    position: absolute;
+    max-width: calc(100% - 2rem);
+    width: auto;
+    box-shadow: var(--shadow);
+    background: rgba(11, 11, 13, 0.8);
+  }
+
+  .floatingStat {
+    top: 1rem;
+    left: 1rem;
+  }
+
+  .floatingPanel {
+    right: 1rem;
+    bottom: 1rem;
+  }
+
+  .heroActions {
+    display: none;
+  }
+
+  .heroChoiceGrid {
+    display: none;
+  }
+
+  .mobileChoiceGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+    border: 1px solid var(--panel-border-dark);
+    border-radius: var(--panel-radius);
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.035);
+  }
+
+  .mobileChoiceGrid .heroChoiceCard + .heroChoiceCard {
+    border-left: 0;
+    border-top: 1px solid var(--panel-border-dark);
+  }
+
+  .mobileHeroActions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
   }
 
   .heroCopy h1 {
@@ -986,13 +1063,18 @@
     font-size: 2.45rem;
   }
 
-  .floatingStat,
-  .floatingPanel {
-    max-width: 12rem;
-  }
-
   .pathCard {
     min-height: auto;
+  }
+
+  .pathCard,
+  .pathCardLight {
+    grid-template-rows: 18rem 1fr;
+  }
+
+  .membershipVisual,
+  .storyPhoto {
+    min-height: 22rem;
   }
 
   .pathHeader {

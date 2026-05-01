@@ -155,12 +155,12 @@ export default function HomePage() {
             </p>
             <div className={styles.heroChoiceGrid}>
               <article className={styles.heroChoiceCard}>
-                <span>Private gym</span>
-                <strong>Hands-on coaching for body transformation, performance, and prep.</strong>
+                <span>Coached transformation</span>
+                <strong>Hands-on support for performance, body change, and prep.</strong>
               </article>
               <article className={styles.heroChoiceCard}>
-                <span>Public gym</span>
-                <strong>A clean, focused place to train, build habits, and stay consistent.</strong>
+                <span>Independent training</span>
+                <strong>A clean, focused place to build habits and stay consistent.</strong>
               </article>
             </div>
             <div className={styles.heroActions}>
@@ -185,13 +185,31 @@ export default function HomePage() {
               />
             </div>
             <div className={styles.floatingStat}>
-              <span>Private gym</span>
-              <strong>Personalized coaching and advanced training</strong>
+              <span>Personalized path</span>
+              <strong>Coaching when your goals call for more direction</strong>
             </div>
             <div className={styles.floatingPanel}>
-              <span>Public gym</span>
-              <strong>Independent training with a path into deeper coaching</strong>
+              <span>Start simple</span>
+              <strong>Train consistently, then level up when you are ready</strong>
             </div>
+          </div>
+          <div className={styles.mobileChoiceGrid}>
+            <article className={styles.heroChoiceCard}>
+              <span>Coached transformation</span>
+              <strong>Hands-on support for performance, body change, and prep.</strong>
+            </article>
+            <article className={styles.heroChoiceCard}>
+              <span>Independent training</span>
+              <strong>A clean, focused place to build habits and stay consistent.</strong>
+            </article>
+          </div>
+          <div className={styles.mobileHeroActions}>
+            <a className={styles.secondaryButton} href="#public-gym">
+              Start at the Public Gym
+            </a>
+            <a className={styles.primaryButton} href="/private-training">
+              Explore Private Coaching
+            </a>
           </div>
         </div>
       </section>

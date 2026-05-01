@@ -8,7 +8,6 @@
   top: 0;
   z-index: 20;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(18px);
 }
 
 .headerInner,
@@ -23,6 +22,7 @@
   align-items: center;
   justify-content: space-between;
   gap: 1.25rem;
+  position: relative;
 }
 
 .logoLink {
@@ -94,6 +94,179 @@
   transform: translateX(140%);
 }
 
+.menuButton {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.05);
+  color: #fff;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.menuButton span {
+  position: absolute;
+  width: 1.15rem;
+  height: 2px;
+  border-radius: 999px;
+  background: #fff;
+  transition:
+    transform 180ms ease,
+    opacity 180ms ease;
+}
+
+.menuButton span:nth-child(1) {
+  transform: translateY(-0.4rem);
+}
+
+.menuButton span:nth-child(3) {
+  transform: translateY(0.4rem);
+}
+
+.mobileOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  pointer-events: none;
+  visibility: hidden;
+  overflow: hidden;
+}
+
+.mobileBackdrop {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  background: rgba(4, 4, 6, 0.92);
+  opacity: 0;
+  transition: opacity 220ms ease;
+  cursor: pointer;
+}
+
+.mobilePanel {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  gap: 2rem;
+  padding: 1rem var(--section-x) 1.5rem;
+  background:
+    radial-gradient(circle at 12% 8%, rgba(237, 28, 35, 0.34), transparent 28%),
+    radial-gradient(circle at 90% 78%, rgba(237, 28, 35, 0.16), transparent 30%),
+    linear-gradient(145deg, #060607 0%, #12090b 44%, #070709 100%);
+  color: #fff;
+  transform: translateX(100%);
+  transition: transform 260ms cubic-bezier(0.22, 1, 0.36, 1);
+  overflow-y: auto;
+  box-shadow: -28px 0 80px rgba(0, 0, 0, 0.5);
+}
+
+.mobilePanelTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.mobilePanelTop img {
+  width: 12.5rem;
+  height: auto;
+}
+
+.closeButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.75rem;
+  border-radius: 999px;
+  padding: 0 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.04);
+  color: #fff;
+  font: inherit;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.mobileNav {
+  display: grid;
+  align-content: center;
+  gap: 0.85rem;
+  position: relative;
+  z-index: 1;
+}
+
+.mobileNav a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  min-height: 3.15rem;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 999px;
+  padding: 0 1rem 0 1.15rem;
+  background: rgba(255, 255, 255, 0.035);
+  color: #fff;
+  font-family: var(--font-heading);
+  font-size: clamp(1.35rem, 7vw, 2.35rem);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.mobileNav a::after {
+  content: "+";
+  color: var(--brand);
+  font-size: 1.6rem;
+  letter-spacing: 0;
+}
+
+.mobileActions {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.mobilePrimary,
+.mobileSecondary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 3.2rem;
+  border-radius: 999px;
+  font-weight: 900;
+}
+
+.mobilePrimary {
+  background: var(--brand);
+  color: #fff;
+  box-shadow: 0 14px 30px rgba(237, 28, 35, 0.22);
+}
+
+.mobileSecondary {
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  color: #fff;
+}
+
+.mobileOverlayOpen {
+  pointer-events: auto;
+  visibility: visible;
+}
+
+.mobileOverlayOpen .mobileBackdrop {
+  opacity: 1;
+}
+
+.mobileOverlayOpen .mobilePanel {
+  transform: translateX(0);
+}
+
 .siteFooter {
   background:
     radial-gradient(circle at top right, rgba(237, 28, 35, 0.16), transparent 32%),
@@ -155,6 +328,93 @@
   margin: 0 0 1rem;
 }
 
+.footerInfoList {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.footerInfoItem {
+  display: grid !important;
+  grid-template-columns: auto 1fr;
+  gap: 0.75rem;
+  align-items: start;
+  margin: 0 !important;
+  padding: 0.85rem;
+  border-radius: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text-muted) !important;
+  font-weight: 600 !important;
+  line-height: 1.55;
+  transition:
+    background-color 180ms ease,
+    border-color 180ms ease,
+    color 180ms ease,
+    transform 180ms ease;
+}
+
+a.footerInfoItem:hover {
+  transform: translateY(-1px);
+  border-color: rgba(237, 28, 35, 0.35);
+  background: rgba(237, 28, 35, 0.08);
+  color: #fff !important;
+}
+
+.footerInfoItem span {
+  display: grid !important;
+  gap: 0.18rem;
+  margin: 0 !important;
+  font-weight: 600 !important;
+}
+
+.footerInfoItem strong {
+  color: #fff;
+  font-size: 0.88rem;
+  line-height: 1.25;
+}
+
+.footerIcon {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 999px;
+  background: rgba(237, 28, 35, 0.13);
+  color: var(--brand);
+  margin: 0 !important;
+  flex-shrink: 0;
+}
+
+.footerIcon svg {
+  width: 1.05rem;
+  height: 1.05rem;
+}
+
+.footerCta {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 3rem;
+  margin-top: 1rem;
+  border-radius: 999px;
+  background: var(--brand);
+  color: #fff !important;
+  font-weight: 900 !important;
+  box-shadow: 0 14px 30px rgba(237, 28, 35, 0.2);
+  transition:
+    transform 180ms ease,
+    background-color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.footerCta:hover {
+  transform: translateY(-2px);
+  background: var(--brand-hover);
+  box-shadow: 0 18px 34px rgba(217, 30, 37, 0.24);
+}
+
 .footerBottom {
   display: flex;
   justify-content: space-between;
@@ -212,23 +472,26 @@
 }
 
 @media (max-width: 1100px) {
-  .nav {
-    display: none;
-  }
-
   .footerTop,
   .footerColumns {
     grid-template-columns: 1fr;
   }
 }
 
-@media (max-width: 720px) {
-  .headerInner {
-    flex-wrap: wrap;
+@media (max-width: 900px) {
+  .nav,
+  .headerCta {
+    display: none;
   }
 
-  .headerCta {
-    width: 100%;
+  .menuButton {
+    display: inline-flex;
+  }
+}
+
+@media (max-width: 720px) {
+  .headerInner {
+    gap: 1rem;
   }
 
   .footerBottom {

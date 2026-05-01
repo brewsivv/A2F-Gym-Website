@@ -3,7 +3,6 @@
 import { useEffect } from "react";
 
 const revealSelector = [
-  "section",
   ".site-card",
   ".site-location-card",
   "[class*='pathCard']",
@@ -15,8 +14,6 @@ const revealSelector = [
 
 const parallaxSelector = [
   ".site-media",
-  "[class*='heroVisual']",
-  "[class*='mainPhotoCard']",
   "[class*='pathImageWrap']",
   "[class*='benefitImage']",
   "[class*='membershipVisual']",
